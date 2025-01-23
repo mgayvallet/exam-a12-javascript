@@ -1,7 +1,12 @@
 function estPalindromeAvance(chaine) {
-    chaine = chaine.toLowerCase().replace(/[^a-zA-Z]/g, "");   // cette re exp permet de sup tous les espaces
-    return chaine === chaine.split("").reverse().join("");
-
+    let chaineMinuscule = chaine.toLowerCase();
+    let chaineSansEspaces = chaineMinuscule.replace(/\s/g, "");
+    let chaineInversee = chaineSansEspaces.split("").reverse().join("");
+    return chaineSansEspaces === chaineInversee;
 }
 
 console.log(estPalindromeAvance("a man a plan a canal panama")); // Résultat attendu : true
+console.log(estPalindromeAvance("laval")); // Résultat attendu : true
+console.log(estPalindromeAvance("Bonjour")); // Résultat attendu : false
+console.log(estPalindromeAvance("radar")); // Résultat attendu : true
+console.log(estPalindromeAvance("ratio")); // Résultat attendu : false
